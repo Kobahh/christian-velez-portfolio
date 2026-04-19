@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Christian Velez — Web Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --text: #111;
+    --muted: #888;
+    --border: #e8e8e8;
+    --bg: #fff;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* ── NAV ── */
+  nav {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    color: var(--muted);
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 5rem 0 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-links {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.8rem;
+  }
+
+  .hero-links a {
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .hero-links a:hover { color: var(--text); border-color: var(--text); }
+
+  /* ── SECTION ── */
+  section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── SKILLS ── */
+  .skills-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .skill-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-row:last-child { border-bottom: none; }
+
+  .skill-name {
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .skill-note {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  /* ── PROJECTS ── */
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project-row {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-start: start;
+  }
+  .project-row:last-child { border-bottom: none; }
+
+  .project-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.01em;
+  }
+
+  .project-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 0.9rem;
+    max-width: 440px;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.55rem;
+  }
+
+  .project-link {
+    font-size: 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    align-self: start;
+    margin-top: 0.25rem;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .project-link:hover { color: var(--text); border-color: var(--text); }
+
+  /* ── CONTACT ── */
+  #contact p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    max-width: 440px;
+    line-height: 1.8;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .contact-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+  }
+  .contact-row:last-child { border-bottom: none; }
+
+  .contact-label { color: var(--muted); }
+  .contact-value {
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: border-color 0.15s;
+  }
+  .contact-value:hover { border-color: var(--text); }
+
+  /* ── FOOTER ── */
+  footer {
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+  }
+
+  @media (max-width: 600px) {
+    .project-row { grid-template-columns: 1fr; gap: 0.75rem; }
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <nav>
+    <span class="nav-name">Christian Velez</span>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <p class="hero-eyebrow">Web Developer</p>
+    <h1 class="hero-name">Christian<br>Velez</h1>
+    <p class="hero-bio">
+      I build websites and web tools — from donation platforms for nonprofits to AI-powered dashboards. I work with HTML, CSS, JavaScript, and React, and I care about things that actually work.
+    </p>
+    <div class="hero-links">
+      <a href="#work">View projects →</a>
+      <a href="mailto:vidal.chris101@gmail.com">Get in touch →</a>
+    </div>
+  </section>
+
+  <section id="work">
+    <p class="section-label">Projects</p>
+    <div class="projects-list">
+
+      <div class="project-row">
+        <div>
+          <div class="project-title">Nonprofit Fundraising Platforms</div>
+          <p class="project-desc">Built and managed custom peer-to-peer fundraising and event registration pages for multiple nonprofit clients — including Liver Life Walk, Liver Life Challenge, Puppy Up Walk, and Bike to the Beach. Work included building donation flows, registration forms, and campaign pages using HTML, CSS, and JavaScript within a proprietary platform.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">P2P Fundraising</span>
+          </div>
+          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
+            <a href="https://liverlifewalk.org/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">liverlifewalk.org →</a>
+            <a href="https://liverlifewalk.org/newyorkcity/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">liverlifewalk.org/newyorkcity →</a>
+            <a href="https://liverlifechallenge.org/tcsnycmarathon" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">liverlifechallenge.org/tcsnycmarathon →</a>
+            <a href="https://puppyupwalk.org/madison/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">puppyupwalk.org/madison →</a>
+            <a href="https://www.biketothebeach.org/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">biketothebeach.org →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-row">
+        <div>
+          <div class="project-title">Shasta Brew Fest</div>
+          <p class="project-desc">Embedded custom peer-to-peer donation and event registration forms into a festival website. Handled responsive layout fixes and cross-browser debugging on a Wix platform.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Wix</span>
+          </div>
+        </div>
+        <a href="https://shastabrewfest.com" target="_blank" class="project-link">Visit site →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="section-label">Skills</p>
+    <div class="skills-list">
+      <div class="skill-row">
+        <span class="skill-name">HTML</span>
+        <span class="skill-note">Semantic markup, structure, accessibility</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">CSS</span>
+        <span class="skill-note">Layouts, responsive design, animations</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">JavaScript</span>
+        <span class="skill-note">DOM, events, APIs, async logic</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">React</span>
+        <span class="skill-note">Components, hooks, state, dashboards</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Python / Flask</span>
+        <span class="skill-note">APIs, scripts, backend logic</span>
+      </div>
+      <div class="skill-row">
+        <span class="skill-name">Webflow / Wix</span>
+        <span class="skill-note">Visual building, CMS, custom embeds</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="section-label">Contact</p>
+    <p>Open to freelance projects and new opportunities. Feel free to reach out.</p>
+    <div class="contact-links">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:vidal.chris101@gmail.com" class="contact-value">vidal.chris101@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/christian-v%C3%A9lez/" target="_blank" class="contact-value">linkedin.com/in/christian-vélez</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Christian Velez</span>
+    <span>© 2026</span>
+  </footer>
+
+</div>
+</body>
+</html>

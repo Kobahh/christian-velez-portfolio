@@ -28,14 +28,12 @@
 
   a { color: inherit; text-decoration: none; }
 
-  /* ── LAYOUT ── */
   .container {
     max-width: 680px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  /* ── NAV ── */
   nav {
     padding: 2rem 0;
     display: flex;
@@ -63,7 +61,6 @@
   }
   .nav-links a:hover { color: var(--text); }
 
-  /* ── HERO ── */
   #hero {
     padding: 5rem 0 4rem;
     border-bottom: 1px solid var(--border);
@@ -108,7 +105,6 @@
   }
   .hero-links a:hover { color: var(--text); border-color: var(--text); }
 
-  /* ── SECTION ── */
   section { padding: 4rem 0; border-bottom: 1px solid var(--border); }
   section:last-of-type { border-bottom: none; }
 
@@ -120,12 +116,7 @@
     margin-bottom: 2.5rem;
   }
 
-  /* ── SKILLS ── */
-  .skills-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .skills-list { display: flex; flex-direction: column; gap: 0; }
 
   .skill-row {
     display: flex;
@@ -136,22 +127,10 @@
   }
   .skill-row:last-child { border-bottom: none; }
 
-  .skill-name {
-    font-size: 0.92rem;
-    font-weight: 500;
-  }
+  .skill-name { font-size: 0.92rem; font-weight: 500; }
+  .skill-note { font-size: 0.78rem; color: var(--muted); }
 
-  .skill-note {
-    font-size: 0.78rem;
-    color: var(--muted);
-  }
-
-  /* ── PROJECTS ── */
-  .projects-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .projects-list { display: flex; flex-direction: column; gap: 0; }
 
   .project-row {
     padding: 1.75rem 0;
@@ -159,7 +138,6 @@
     display: grid;
     grid-template-columns: 1fr auto;
     gap: 2rem;
-    align-start: start;
   }
   .project-row:last-child { border-bottom: none; }
 
@@ -206,7 +184,45 @@
   }
   .project-link:hover { color: var(--text); border-color: var(--text); }
 
-  /* ── CONTACT ── */
+  /* ── SCREENSHOT GRID ── */
+  .screenshot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
+  }
+
+  .screenshot-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .screenshot-item:hover { border-color: #aaa; }
+
+  .screenshot-item img {
+    width: 100%;
+    height: 130px;
+    object-fit: cover;
+    object-position: top;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .screenshot-item:hover img { transform: scale(1.03); }
+
+  .screenshot-label {
+    padding: 0.45rem 0.6rem;
+    font-size: 0.7rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .screenshot-label span { color: var(--muted); }
+  .screenshot-arrow { font-size: 0.65rem; }
+
   #contact p {
     font-size: 0.9rem;
     color: var(--muted);
@@ -215,11 +231,7 @@
     line-height: 1.8;
   }
 
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
+  .contact-links { display: flex; flex-direction: column; gap: 0; }
 
   .contact-row {
     display: flex;
@@ -240,7 +252,6 @@
   }
   .contact-value:hover { border-color: var(--text); }
 
-  /* ── FOOTER ── */
   footer {
     padding: 2rem 0;
     display: flex;
@@ -253,6 +264,7 @@
   @media (max-width: 600px) {
     .project-row { grid-template-columns: 1fr; gap: 0.75rem; }
     .nav-links { display: none; }
+    .screenshot-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -277,7 +289,7 @@
     </p>
     <div class="hero-links">
       <a href="#work">View projects →</a>
-      <a href="mailto:l.kobaholic@gmail.com">Get in touch →</a>
+      <a href="mailto:vidal.chris101@gmail.com">Get in touch →</a>
     </div>
   </section>
 
@@ -294,7 +306,7 @@
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
             <span class="tag">P2P Fundraising</span>
-            <span class="tag">Wordpress</span>
+            <span class="tag">WordPress</span>
           </div>
           <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
             <a href="https://liverlifewalk.org/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">liverlifewalk.org →</a>
@@ -312,15 +324,26 @@
           <p class="project-desc">Built, designed and managed custom portfolios and local business websites.</p>
           <div class="project-tags">
             <span class="tag">HTML</span>
-            <span class="tag">CSS</span>    
+            <span class="tag">CSS</span>
             <span class="tag">Webflow</span>
           </div>
-          <div style="margin-top: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">
-            <a href="https://hermanos-lucca.webflow.io/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">Hermanos Luccas →</a>
-            <a href="https://jackies-site-d521f7.webflow.io/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">Jackie's Actress Portfolio →</a>
-            <a href="https://gabrielas-designer-portfolio.webflow.io/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">Gabriela's Accessory Design Portfolio →</a>
-            <a href="https://christians-stellar-site-26965d.webflow.io/" target="_blank" class="project-link" style="display:inline-block; width: fit-content;">Dreamsale - Real Estate Mock-Up Project →</a>
-         
+          <div class="screenshot-grid">
+            <a href="https://christians-stellar-site-26965d.webflow.io/" target="_blank" class="screenshot-item">
+              <img src="dreamsale_mockup.jpg" alt="Dreamsale real estate mockup">
+              <div class="screenshot-label"><span>Dreamsale</span><span class="screenshot-arrow">→</span></div>
+            </a>
+            <a href="https://hermanos-lucca.webflow.io/" target="_blank" class="screenshot-item">
+              <img src="luccas_site.jpg" alt="Hermanos Lucca website">
+              <div class="screenshot-label"><span>Hermanos Lucca</span><span class="screenshot-arrow">→</span></div>
+            </a>
+            <a href="https://jackies-site-d521f7.webflow.io/" target="_blank" class="screenshot-item">
+              <img src="jackies_portfolio.png" alt="Jackie's actress portfolio">
+              <div class="screenshot-label"><span>Jackie's Portfolio</span><span class="screenshot-arrow">→</span></div>
+            </a>
+            <a href="https://gabrielas-designer-portfolio.webflow.io/" target="_blank" class="screenshot-item">
+              <img src="Gabrielas_portfolio.jpg" alt="Gabriela's accessory design portfolio">
+              <div class="screenshot-label"><span>Gabriela's Portfolio</span><span class="screenshot-arrow">→</span></div>
+            </a>
           </div>
         </div>
       </div>
@@ -328,12 +351,12 @@
       <div class="project-row">
         <div>
           <div class="project-title">Shasta Brew Fest</div>
-          <p class="project-desc">Embedded custom peer-to-peer donation and event registration forms into a festival website. Handled responsive layout fixes and cross-browser debugging on a Wordpress platform.</p>
+          <p class="project-desc">Embedded custom peer-to-peer donation and event registration forms into a festival website. Handled responsive layout fixes and cross-browser debugging on a WordPress platform.</p>
           <div class="project-tags">
             <span class="tag">HTML</span>
             <span class="tag">CSS</span>
             <span class="tag">JavaScript</span>
-           <span class="tag">Wordpress</span>
+            <span class="tag">WordPress</span>
           </div>
         </div>
         <a href="http://shasta.ku5s8bv7ca-qy3jjevry3kg.p.temp-site.link/" target="_blank" class="project-link">Visit site →</a>
@@ -362,7 +385,7 @@
         <span class="skill-note">Claude Code, Claude API</span>
       </div>
       <div class="skill-row">
-        <span class="skill-name">Webflow / Wix / Wordpress / Squarespace</span>
+        <span class="skill-name">Webflow / Wix / WordPress / Squarespace</span>
         <span class="skill-note">Visual building, CMS, custom embeds</span>
       </div>
     </div>
@@ -374,7 +397,7 @@
     <div class="contact-links">
       <div class="contact-row">
         <span class="contact-label">Email</span>
-        <a href="mailto:l.kobaholic@gmail.com" class="contact-value">l.kobaholic@gmail.com</a>
+        <a href="mailto:vidal.chris101@gmail.com" class="contact-value">vidal.chris101@gmail.com</a>
       </div>
       <div class="contact-row">
         <span class="contact-label">LinkedIn</span>

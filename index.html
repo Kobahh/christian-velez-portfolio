@@ -276,8 +276,7 @@
     <span class="nav-name">Christian Velez</span>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
-      <li><a href="#skills">Skills</a></li>
-     <li><a href="#code">Code</a></li>
+      <li><a href="#skills">Skills</a></li>   
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -410,65 +409,7 @@
         <span class="skill-note">Visual building, CMS, custom embeds</span>
       </div>
     </div>
-  </section>
- <section id="code">
-  <p class="section-label">Code Sample</p>
-  <div style="margin-bottom: 1.5rem;">
-    <div class="project-title" style="margin-bottom: 0.4rem;">Registration Form Customization</div>
-    <p class="project-desc" style="max-width: 100%;">JavaScript used to customize a third-party peer-to-peer fundraising registration form for the Liver Life Walk NYC event page — dynamically injecting donation levels, toggling optional fields, and improving validation messaging.</p>
-  </div>
-  <pre style="background: #f7f7f7; border: 1px solid var(--border); padding: 1.5rem; font-size: 0.75rem; line-height: 1.7; overflow-x: auto; font-family: 'Courier New', monospace; color: #111;"><code>function benForm_Loaded() {
-  // Set custom donation levels
-  var donationlevels = [50, 100, 150, 250, 500];
-  jQuery(".bendonlevels input[type=radio]").each(function (i, e) {
-    if (donationlevels[i]) {
-      jQuery(e).val(donationlevels[i]);
-      jQuery(".bendonlevels label").eq(i).html("$" + donationlevels[i]);
-    }
-  });
-
-  // Inject motivational message below donation levels
-  jQuery(".bendonlevels").after(`
-    &lt;p style="font-weight:600; margin: 12px 0 6px;"&gt;
-      Most walkers choose to donate $50 when they register.
-    &lt;/p&gt;
-  `);
-
-  // Hide default donation fields, inject Yes/No toggle
-  jQuery('.benformdon, .benhonorrolldiv').hide();
-  jQuery('.benformdon').before(`
-    &lt;div style="margin: 1.5rem 0;"&gt;
-      &lt;div class="bentableheading"&gt;Would you like to make a donation? (Optional)&lt;/div&gt;
-      &lt;table class="bendonlevels"&gt;&lt;tbody&gt;&lt;tr&gt;
-        &lt;td&gt;&lt;input id="donation_yes" type="radio" name="bendonlevels"&gt;
-            &lt;label for="donation_yes"&gt;Yes&lt;/label&gt;&lt;/td&gt;
-        &lt;td&gt;&lt;input id="donation_no" type="radio" name="bendonlevels" checked&gt;
-            &lt;label for="donation_no"&gt;No&lt;/label&gt;&lt;/td&gt;
-      &lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;
-    &lt;/div&gt;
-  `);
-
-  // Show/hide donation fields based on Yes/No selection
-  jQuery("#donation_yes, #donation_no").change(function () {
-    if (jQuery("#donation_yes").is(":checked")) {
-      jQuery('.benformdon, .benhonorrolldiv').show();
-    } else {
-      jQuery('.benformdon, .benhonorrolldiv').hide();
-      jQuery('[id*="ben_DonationAmount"]').val(0);
-      updatePaymentTotalsNew(this);
-    }
-  });
-
-  // Improve validation error message on next button click
-  jQuery(document).on('click', '#b_form_next', function () {
-    if (jQuery('.benformerror').is(':visible')) {
-      jQuery('.benregtypes label.beninvalid')
-        .prependTo(".benregtypes")
-        .text('You must select a registration type to continue.');
-    }
-  });
-}</code></pre>
-</section>
+ 
 
   <section id="contact">
     <p class="section-label">Contact</p>
